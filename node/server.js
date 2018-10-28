@@ -23,8 +23,11 @@ app.use(upload())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+// require("./routes/apiRoutes")(app);
+// require("./routes/htmlRoutes")(app);
+
+require("./node/routes/apiRoutes")(app);
+require("./node/routes/htmlRoutes")(app);
 
 // Starts the server to begin listening
 // =============================================================
