@@ -20,19 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 require("./routes/apiRoutes")(app);
-// require("./routes/htmlRoutes")(app);
-
-app.post("/pdfpost", function(req, res) {
-
-    if(req.files){
-      //foo is the post key name for the file
-        var file = req.files.foo,
-        filename = file.name
-    
-        file.mv("./pdfs/"+filename).then(res.send("The file was saved!"))
-    }
-
-  });
+require("./routes/htmlRoutes")(app);
 
 // Starts the server to begin listening
 // =============================================================
