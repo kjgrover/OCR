@@ -4,7 +4,7 @@ library(plumber)
 library(tabulizer)
 
 
-#' @get /echo
+#* @get /echo
 function(){
   return("PLUMBER WORKS!")
   
