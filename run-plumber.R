@@ -1,6 +1,6 @@
 
 library(plumber)
 
-r <- plumb("~OCR/plumbere.R")
+r <- plumb("plumber.R")
 
 r$run(port=4000)
