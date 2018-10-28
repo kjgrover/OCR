@@ -2,7 +2,7 @@
 
 library(plumber)
 
-r <- plumb("plumber.R")
+r <- plumb("~/OCR/plumber.R")
 
 r$run(port=4000)
 
