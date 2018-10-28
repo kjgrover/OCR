@@ -15,7 +15,7 @@ function(){
 #' @json
 function(pdf){
   library("tabulizer")
-  f <- paste("C:/Users/kelse/Desktop/Rscripts/Tessaract/",toString(pdf, width = NULL), sep="")
+  f <- paste("./node/pdfs/",toString(pdf, width = NULL), sep="")
   extract_tables(f)
 }
 
