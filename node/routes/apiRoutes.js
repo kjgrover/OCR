@@ -13,14 +13,14 @@ app.post("/pdfpost", function(req, res) {
         var file = req.files.foo,
         filename = file.name
     
-        file.mv("./pdfs/" +filename).then(res.send("The file was saved!"))
+        file.mv("./node/pdfs/" +filename).then(res.send("The file was saved!"))
     }
 
   });
 
     app.get("/pdfdelete", function(req, res) {
         console.log(req.params)
-        fs.unlink("./pdfs/"+req.query.filename, (err) => {
+        fs.unlink("./node/pdfs/"+req.query.filename, (err) => {
             if (err) {
                 res.send("failed to delete local image:"+err);
             } else {
