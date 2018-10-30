@@ -6,7 +6,7 @@ library(tabulizer)
 
 #' @get /echo
 function(){
-  return("PLUMBER WORKS!")
+return("Vince is going to pass his class tonight!")
   
 }
 
@@ -24,6 +24,8 @@ function(pdf){
 #' @json
 function(req){
   # library("tabulizer")
+
+
   # f <- req$postBody
   # extract_tables(f)
   # extract_tables(req$postBody)
