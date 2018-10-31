@@ -162,19 +162,19 @@ function makecsv() {
       }).then(window.open("/csvgrab?filename="+csvName))
 }
 
-function getcsv() {
-  $.ajax({
-        url: "http://104.248.69.73:8080/csvgrab?filename="+"tableTEST.csv",
-        type: 'GET',
-        dataType: 'binary',
-        async: false,
-        success: function (data) {
-          console.log("HELLO")
-          console.log(data); //ArrayBuffer
-          console.log(new Blob([data])) // Blob
-        }
-      }).then(console.log("KEEP CODING BELOW HERE"))
-}
+// function getcsv() {
+//   $.ajax({
+//         url: "http://104.248.69.73:8080/csvgrab?filename="+"tableTEST.csv",
+//         type: 'GET',
+//         dataType: 'binary',
+//         async: false,
+//         success: function (data) {
+//           console.log("HELLO")
+//           console.log(data); //ArrayBuffer
+//           console.log(new Blob([data])) // Blob
+//         }
+//       }).then(console.log("KEEP CODING BELOW HERE"))
+// }
 
 
 // function getjson() {
