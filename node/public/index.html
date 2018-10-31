@@ -140,7 +140,11 @@ $.ajaxSetup({
       //       console.log(data);
 
       //   })
-    }).done(makecsv())
+    }).then(function(data) {
+      if(data)(
+      makecsv()
+      )
+    })
 });
 
 
@@ -156,7 +160,7 @@ function makecsv() {
             console.log(data);
           }
         }
-      }).done(getcsv())
+      }).then(getcsv())
 }
 
 function getcsv() {
@@ -168,7 +172,7 @@ function getcsv() {
           console.log(data); //ArrayBuffer
           console.log(new Blob([data])) // Blob
         }
-      }).done(console.log("KEEP CODING BELOW HERE"))
+      }).then(console.log("KEEP CODING BELOW HERE"))
 }
 
 
