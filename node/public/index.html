@@ -124,7 +124,7 @@ $.ajaxSetup({
     event.preventDefault() 
     var filePath = $("#file-name").val();
         pdfName = filePath.replace(/^.*[\\\/]/, '');
-        csvName = pdfName.slice(0,-3)+".csv"
+        csvName = pdfName.slice(0,-3)+"csv"
     var formData = new FormData(this);
 
     $.ajax({
