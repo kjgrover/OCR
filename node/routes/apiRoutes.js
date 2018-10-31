@@ -33,7 +33,7 @@ app.post("/pdfpost", function(req, res) {
       app.get("/csvgrab", function(req, res) {
 
         console.log('successfully deleted local image')                              
-        res.sendFile(path.join(__dirname, './node/pdfs/', req.query.filename));
+        res.sendFile(path.join(__dirname, '../pdfs/', req.query.filename));
       });
 
 };
