@@ -167,6 +167,7 @@ function getcsv() {
         dataType: 'binary',
         async: false,
         success: function (data) {
+          console.log("HELLO")
           console.log(data); //ArrayBuffer
           console.log(new Blob([data])) // Blob
         }
