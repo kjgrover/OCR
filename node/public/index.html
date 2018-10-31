@@ -125,6 +125,13 @@ $.ajaxSetup({
         pdfName = filePath.replace(/^.*[\\\/]/, '');
     var formData = new FormData(this);
 
+    pdfpost(makecsv(getcsv()))
+
+});
+
+
+function pdfpost(callback){
+
     $.ajax({
         url: "http://104.248.69.73:8080/pdfpost",
         type: 'POST',
@@ -140,16 +147,12 @@ $.ajaxSetup({
       //       console.log(data);
 
       //   })
-    }).then(function(data) {
-      if(data)(
-      makecsv()
-      )
-    })
-});
+    }).then(callback())
+
+}
 
 
-
-function makecsv() {
+function makecsv(callback) {
   
   $.ajax({
         url: "http://104.248.69.73:4000/tabcsv?pdf="+pdfName,
@@ -160,7 +163,7 @@ function makecsv() {
             console.log(data);
           }
         }
-      }).then(getcsv())
+      }).then(callback())
 }
 
 function getcsv() {
