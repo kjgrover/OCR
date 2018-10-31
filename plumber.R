@@ -21,7 +21,7 @@ cors <- function(req, res) {
 
 #' @get /echo
 function(){
-return("")
+return("echo")
   
 }
 
@@ -41,6 +41,8 @@ function(pdf){
   library("tabulizer")
   f <- paste("./node/pdfs/",toString(pdf, width = NULL), sep="")
   out1 <- extract_tables(f)
-  setwd(".node/pdfs/")
+  # setwd(".node/pdfs/")
   write.table(out1, file = toString(pdf, width = NULL), append=TRUE, sep = ",")
+  return("CSV successful")
+  
 }
