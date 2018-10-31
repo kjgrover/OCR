@@ -12,7 +12,7 @@ app.post("/pdfpost", function(req, res) {
         var file = req.files.foo,
         filename = file.name
     
-        file.mv("./node/pdfs/" +filename).then(res.send("The file was saved!"))
+        file.mv("./node/pdfs/" +filename).then(res.send(req.files.foo+" saved"))
 
     }
 
@@ -34,10 +34,10 @@ app.post("/pdfpost", function(req, res) {
       app.get("/csvgrab", function(req, res) {
 
         console.log('successfully deleted local image')                              
-        res.sendFile(path.join(__dirname, '../pdfs/', req.query.filename));
+        res.sendFile(path.join(__dirname, '../csv/', req.query.filename));
       });
 
-      
+
       app.get("/csvdelete", function(req, res) {
         fs.unlink("./node/csv/"+req.query.filename, (err) => {
             if (err) {
