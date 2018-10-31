@@ -21,7 +21,7 @@ cors <- function(req, res) {
 
 #' @get /echo
 function(){
-return("Vince is going to pass his class tonight!")
+return("")
   
 }
 
@@ -35,18 +35,12 @@ function(pdf){
 }
 
 #' @param pdf
-#' @post /post
+#' @get /tabcsv
 #' @json
-function(req){
-  # library("tabulizer")
-
-
-  # f <- req$postBody
-  # extract_tables(f)
-  # extract_tables(req$postBody)
-  # content <- read_feather(data)
-  # somefile <- readBin(con = formContents$upload$tempfile, "raw", 
-  #                     n = file.size(formContents$upload$tempfile))
-  # req$postBody
-  # extract_tables(content)
+function(pdf){
+  library("tabulizer")
+  f <- paste("./node/pdfs/",toString(pdf, width = NULL), sep="")
+  out1 <- extract_tables(f)
+  setwd(".node/pdfs/")
+  write.table(out1, file = toString(pdf, width = NULL), append=TRUE, sep = ",")
 }
