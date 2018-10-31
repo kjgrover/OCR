@@ -159,7 +159,7 @@ function makecsv() {
 
 function getcsv() {
   $.ajax({
-        url: "http://104.248.69.73:4000/csvgrab?filename="+"tableTEST",
+        url: "http://104.248.69.73:4000/csvgrab?filename="+"tableTEST.csv",
         type: 'GET',
         dataType: 'binary',
         success: function (data) {
