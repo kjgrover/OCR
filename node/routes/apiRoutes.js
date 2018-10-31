@@ -30,5 +30,11 @@ app.post("/pdfpost", function(req, res) {
     });
 
       });
+      app.get("/csvgrab", function(req, res) {
+
+        console.log('successfully deleted local image')
+        res.sendFile("./node/pdfs/"+req.query.filename);                                
+
+      });
 
 };

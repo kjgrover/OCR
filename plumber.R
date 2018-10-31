@@ -47,7 +47,7 @@ function(pdf){
   csvFile = paste(s1, ".csv", sep="")
   
   write.table(out1, file = paste("./node/csv/", csvFile, sep=""), append=TRUE, sep = ",", row.names=FALSE, col.names=FALSE)
-  return("CSV successful")
+  return("Successful PDF to CSV write")
   
   
 }
