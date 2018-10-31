@@ -12,7 +12,7 @@ app.post("/pdfpost", function(req, res) {
         var file = req.files.foo,
         filename = file.name
     
-        file.mv("./node/pdfs/" +filename).then(res.send(req.files.foo+" saved"))
+        file.mv("./node/pdfs/" +filename).then(res.send(filename+" saved"))
 
     }
 
