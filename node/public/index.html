@@ -152,14 +152,16 @@ function makecsv() {
         type: 'GET',
         dataType: 'text',
         success: function (data) {
+          if(data){
             console.log(data);
+          }
         }
       }).then(getcsv())
 }
 
 function getcsv() {
   $.ajax({
-        url: "http://104.248.69.73:4000/csvgrab?filename="+"tableTEST.csv",
+        url: "http://104.248.69.73:8080/csvgrab?filename="+"tableTEST.csv",
         type: 'GET',
         dataType: 'binary',
         success: function (data) {
