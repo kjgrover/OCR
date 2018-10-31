@@ -46,7 +46,7 @@ function(pdf){
   s1 = unlist(strsplit(s, split='.', fixed=TRUE))[1]
   csvFile = paste(s1, ".csv", sep="")
   
-  write.table(out1, file = paste("./node/pdfs/", csvFile, sep=""), append=TRUE, sep = ",", row.names=FALSE, col.names=FALSE)
+  write.table(out1, file = paste("./node/csv/", csvFile, sep=""), append=TRUE, sep = ",", row.names=FALSE, col.names=FALSE)
   return("CSV successful")
   
   
