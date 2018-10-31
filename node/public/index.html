@@ -86,7 +86,7 @@
                     </form> -->
                 </div>
               </div>
-            </div> -->
+            </div> 
 
         </div>
       </div>
@@ -140,7 +140,7 @@ $.ajaxSetup({
       //       console.log(data);
 
       //   })
-    }).then(makecsv())
+    }).done(makecsv())
 });
 
 
@@ -156,7 +156,7 @@ function makecsv() {
             console.log(data);
           }
         }
-      }).then(getcsv())
+      }).done(getcsv())
 }
 
 function getcsv() {
@@ -168,7 +168,7 @@ function getcsv() {
           console.log(data); //ArrayBuffer
           console.log(new Blob([data])) // Blob
         }
-      }).then(console.log("KEEP CODING BELOW HERE"))
+      }).done(console.log("KEEP CODING BELOW HERE"))
 }
 
 
