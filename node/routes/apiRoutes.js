@@ -33,8 +33,7 @@ app.post("/pdfpost", function(req, res) {
 
       app.get("/csvgrab", function(req, res) {
 
-        console.log('successfully deleted local image')                              
-        res.sendFile(path.join(__dirname, '../csv/', req.query.filename));
+        res.download(path.join(__dirname, '../csv/', req.query.filename));
       });
 
 
