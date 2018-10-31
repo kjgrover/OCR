@@ -118,11 +118,13 @@ $.ajaxSetup({
 })
 
     var pdfName;
+    var csvName;
 
     $("#file-form").on("submit", function(event) {
     event.preventDefault() 
     var filePath = $("#file-name").val();
         pdfName = filePath.replace(/^.*[\\\/]/, '');
+        csvName = pdfName.slice(0,-3)+".csv"
     var formData = new FormData(this);
 
     $.ajax({
@@ -157,7 +159,7 @@ function makecsv() {
             console.log(data);
           }
         }
-      }).then(window.open("/csvgrab?filename="+"tableTEST.csv"))
+      }).then(window.open("/csvgrab?filename="+pdfName))
 }
 
 function getcsv() {
