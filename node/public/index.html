@@ -125,12 +125,12 @@ $.ajaxSetup({
         pdfName = filePath.replace(/^.*[\\\/]/, '');
     var formData = new FormData(this);
 
-    pdfpost(makecsv(getcsv()))
+    pdfpost()
 
 });
 
 
-function pdfpost(callback){
+function pdfpost(){
 
     $.ajax({
         url: "http://104.248.69.73:8080/pdfpost",
@@ -147,23 +147,24 @@ function pdfpost(callback){
       //       console.log(data);
 
       //   })
-    }).then(callback())
+    }).then(makecsv())
 
 }
 
 
-function makecsv(callback) {
+function makecsv() {
   
   $.ajax({
         url: "http://104.248.69.73:4000/tabcsv?pdf="+pdfName,
         type: 'GET',
         dataType: 'text',
+        async: false,
         success: function (data) {
           if(data){
             console.log(data);
           }
         }
-      }).then(callback())
+      }).then(getcsv())
 }
 
 function getcsv() {
@@ -171,6 +172,7 @@ function getcsv() {
         url: "http://104.248.69.73:8080/csvgrab?filename="+"tableTEST.csv",
         type: 'GET',
         dataType: 'binary',
+        async: false,
         success: function (data) {
           console.log(data); //ArrayBuffer
           console.log(new Blob([data])) // Blob
