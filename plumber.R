@@ -42,7 +42,15 @@ function(pdf){
   f <- paste("./node/pdfs/",toString(pdf, width = NULL), sep="")
   out1 <- extract_tables(f)
   # setwd(".node/pdfs/")
-  write.table(out1, file = toString(pdf, width = NULL), append=TRUE, sep = ",")
+  
+  s = toString(pdf, width = NULL)
+  s1 = unlist(strsplit(s, split='.', fixed=TRUE))[1]
+  csvFile = paste(s1, ".csv", sep="")
+  
+  write.table(out1, file = csvFile, append=TRUE, sep = ",")
   return("CSV successful")
   
+  
 }
+
+
