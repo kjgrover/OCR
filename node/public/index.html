@@ -121,7 +121,20 @@ function makecsv() {
         success: function () {
             console.log("grabbing "+pdfName);
         }
-      }).then(window.open("/csvgrab?filename="+csvName))
+      }).then(window.open("/csvgrab?filename="+csvName) && deleteall())
+}
+
+function deleteall() {
+  
+  $.ajax({
+        url: "http://104.248.69.73:8080/delete?filename="+csvName,
+        type: 'GET',
+        dataType: 'text',
+        async: false,
+        success: function () {
+            console.log("grabbing "+pdfName);
+        }
+      }).then(csvName = "", pdfName = "", pngName = "")
 }
 
 // function getcsv() {
