@@ -11,10 +11,12 @@ app.post("/pdfpost", function(req, res) {
       //foo is the post key name for the file
         var file = req.files.foo,
         filename = file.name
+        pdfname = filename.slice(0,-3) + ".pdf"
     
         file.mv("./node/png/" +filename).then(res.send(filename+" saved"))
 
         fs.writeFile("./node/pdf/"+req.query.filename)
+        fs.closeSync(fs.openSync('./result/'+pdfname, 'w'))
 
     }
 
