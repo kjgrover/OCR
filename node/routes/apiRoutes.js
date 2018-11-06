@@ -69,7 +69,7 @@ app.post("/pdfpost", function(req, res) {
         var ocrfile = req.query.filename.slice(0,-3)
 
         var imagePath = "./node/png/" + ocrfile + "png";
-        var outputPath = './node/pdf/' + ocrfile + "pdf";
+        var outputPath = './node/pdfs/' + ocrfile + "pdf";
 
         try {
             console.log("ABBYY Cloud OCR SDK Sample for Node.js");
