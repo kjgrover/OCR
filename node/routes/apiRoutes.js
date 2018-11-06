@@ -21,19 +21,6 @@ app.post("/pdfpost", function(req, res) {
 
   });
 
-    app.get("/pdfdelete", function(req, res) {
-        console.log(req.params)
-        fs.unlink("./node/pdfs/"+req.query.filename, (err) => {
-            if (err) {
-                res.send("failed to delete local image:"+err);
-            } else {
-                res.send(req.query.filename+" was successfully deleted");                                
-            }
-        });
-
-    });
-
-
       app.get("/delete", function(req, res) {
 
         var deletefile = req.query.filename.slice(0,-3)
@@ -105,7 +92,7 @@ app.post("/pdfpost", function(req, res) {
                     console.log("Error: " + error.message);
                     return;
                 }
-                console.log("Done.");
+                res.send("Done.");
             }
 
             function processingCompleted(error, taskData) {
@@ -123,7 +110,7 @@ app.post("/pdfpost", function(req, res) {
                 }
 
                 console.log("Processing completed.");
-                res.send("Downloading result to " + outputPath);
+                console.log("Downloading result to " + outputPath);
 
                 ocrsdk
                         .downloadResult(taskData.resultUrl.toString(), outputPath,
