@@ -121,7 +121,7 @@ function makecsv() {
         success: function () {
             console.log("grabbing "+pdfName);
         }
-      }).then(window.open("/csvgrab?filename="+csvName) && deleteall())
+      }).then(window.open("/csvgrab?filename="+csvName).then(deleteall()))
 }
 
 function deleteall() {
@@ -132,7 +132,7 @@ function deleteall() {
         dataType: 'text',
         async: false,
         success: function () {
-            console.log("grabbing "+pdfName);
+            console.log("deleted all");
         }
       }).then(csvName = "", pdfName = "", pngName = "")
 }
