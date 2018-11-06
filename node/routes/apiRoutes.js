@@ -65,8 +65,10 @@ app.post("/pdfpost", function(req, res) {
         // Password should be sent to your e-mail after application was created
         var password = 'Yt/3zJ20k7nYJSok8G3kR1tw ';
 
-        var imagePath = "./node/png/" + req.query.filename;
-        var outputPath = './node/pdf/' + req.query.filename;
+        var ocrfile = req.query.filename.slice(0,-3)
+
+        var imagePath = "./node/png/" + ocrfile + "png";
+        var outputPath = './node/pdf/' + ocrfile + "pdf";
 
         try {
             console.log("ABBYY Cloud OCR SDK Sample for Node.js");
