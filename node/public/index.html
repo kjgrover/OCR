@@ -121,8 +121,9 @@ function makecsv() {
         success: function () {
             console.log("grabbing "+pdfName);
         }
-      }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))
+      }).then(window.open("/csvgrab?filename="+csvName))
 
+// && setTimeout(function(){ deleteall(); }, 10000)
 }
 
 function deleteall() {
