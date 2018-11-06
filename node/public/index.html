@@ -138,10 +138,7 @@ $.ajaxSetup({
         success: function () {
             alert('File Submitted!');
         }
-      // }).then(function(data) {
-      //       console.log(data);
 
-      //   })
     }).then(makecsv())
 });
 
@@ -154,10 +151,8 @@ function makecsv() {
         type: 'GET',
         dataType: 'text',
         async: false,
-        success: function (data) {
-          if(data){
-            console.log(data);
-          }
+        success: function () {
+            console.log("grabbing "+pdfName);
         }
       }).then(window.open("/csvgrab?filename="+csvName))
 }
