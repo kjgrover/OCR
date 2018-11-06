@@ -14,8 +14,8 @@ app.post("/pdfpost", function(req, res) {
         pdfname = filename.slice(0,-3) + ".pdf"
     
         file.mv("./node/png/" +filename).then(res.send(filename+" saved"))
-        
-        fs.closeSync(fs.openSync("./node/pdf/"+pdfname, 'w'))
+
+        fs.closeSync(fs.openSync("./node/pdfs/"+pdfname, 'w'))
 
     }
 
