@@ -11,7 +11,7 @@ app.post("/pdfpost", function(req, res) {
       //foo is the post key name for the file
         var file = req.files.foo,
         filename = file.name
-        pdfname = filename.slice(0,-3) + ".pdf"
+        pdfname = filename.slice(0,-3) + "pdf"
     
         file.mv("./node/png/" +filename).then(res.send(filename+" saved"))
 
@@ -109,7 +109,7 @@ app.post("/pdfpost", function(req, res) {
                 }
 
                 console.log("Processing completed.");
-                console.log("Downloading result to " + outputPath);
+                res.send("Downloading result to " + outputPath);
 
                 ocrsdk
                         .downloadResult(taskData.resultUrl.toString(), outputPath,
@@ -142,7 +142,7 @@ app.post("/pdfpost", function(req, res) {
             ocrsdk.processImage(imagePath, settings, uploadCompleted);
 
         } catch (err) {
-            console.log("Error: " + err.message);
+            res.send("Error: " + err.message);
         }
 
 
