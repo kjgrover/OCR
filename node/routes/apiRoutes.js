@@ -41,16 +41,12 @@ app.post("/pdfpost", function(req, res) {
         fs.unlink("./node/csv/"+deletefile+"csv", (err) => {
             if (err) {
                 res.send("failed to delete local image:"+err);
-            } else {
-                res.send(req.query.filename+" was successfully deleted");                                
             }
         });
 
         fs.unlink("./node/pdfs/"+deletefile+"pdf", (err) => {
             if (err) {
                 res.send("failed to delete local image:"+err);
-            } else {
-                res.send(req.query.filename+" was successfully deleted");                                
             }
         });
 
@@ -58,7 +54,7 @@ app.post("/pdfpost", function(req, res) {
             if (err) {
                 res.send("failed to delete local image:"+err);
             } else {
-                res.send(req.query.filename+" was successfully deleted");                                
+                res.send("All files successfully deleted");                                
             }
         });
     });
