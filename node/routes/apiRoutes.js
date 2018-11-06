@@ -38,7 +38,7 @@ app.post("/pdfpost", function(req, res) {
 
         var deletefile = req.query.filename.slice(0,-3)
 
-        fs.unlink("./node/csv/"+deletefile+".csv", (err) => {
+        fs.unlink("./node/csv/"+deletefile+"csv", (err) => {
             if (err) {
                 res.send("failed to delete local image:"+err);
             } else {
@@ -46,7 +46,7 @@ app.post("/pdfpost", function(req, res) {
             }
         });
 
-        fs.unlink("./node/pdfs/"+deletefile+".pdf", (err) => {
+        fs.unlink("./node/pdfs/"+deletefile+"pdf", (err) => {
             if (err) {
                 res.send("failed to delete local image:"+err);
             } else {
@@ -54,7 +54,7 @@ app.post("/pdfpost", function(req, res) {
             }
         });
 
-        fs.unlink("./node/png/"+deletefile+".png", (err) => {
+        fs.unlink("./node/png/"+deletefile+"png", (err) => {
             if (err) {
                 res.send("failed to delete local image:"+err);
             } else {
