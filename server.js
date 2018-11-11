@@ -12,11 +12,10 @@ var path = require('path');
 // Sets up the Express App
 // =============================================================
 var app = express();
-
 var PORT = 8080;
 
 // app.use('/', express.static(path.join(__dirname + '/node/public')))
-app.use("/public", express.static(__dirname + '/node/public'));
+app.use("/node/public", express.static(__dirname + '/node/public'));
 
 app.use(cors());
 app.use(upload())
@@ -25,9 +24,6 @@ app.use(upload())
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-// require("./routes/apiRoutes")(app);
-// require("./routes/htmlRoutes")(app);
 
 require("./node/routes/apiRoutes")(app);
 require("./node/routes/htmlRoutes")(app);
