@@ -63,14 +63,17 @@ $.ajaxSetup({
         // }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))
       }).then(postfile())
   
-  
-  
+
   }
   
   function postfile() {
+    
     var win = window.open("/csvgrab?filename="+csvName)
-  
-    win.onload = function() { deleteall() }
+    $(win.document).load(function() {
+        deleteall()
+    })
+
+    
   }
   
   function deleteall() {
