@@ -15,7 +15,8 @@ var app = express();
 var PORT = 8080;
 
 // app.use('/', express.static(path.join(__dirname + '/node/public')))
-app.use("/node/public", express.static(__dirname + '/node/public'));
+// app.use("./node/public", express.static(__dirname + '/node/public'));
+app.use(express.static(__dirname + '/node/public'));
 
 app.use(cors());
 app.use(upload())
