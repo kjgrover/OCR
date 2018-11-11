@@ -7,18 +7,21 @@ $.ajaxSetup({
     }
   })
   
-      var pdfName;
-      var csvName;
-      var pngName;
+      let pdfName;
+      let csvName;
+      let pngName;
   
       $("#file-form").on("submit", function(event) {
       event.preventDefault() 
-      var filePath = $("#file-name").val();
+
+      $("#loading").prepend("<img id='loader' src='/node/public/media/loader-bar.gif' />");
+
+      let filePath = $("#file-name").val();
           pngName = filePath.replace(/^.*[\\\/]/, '');
           csvName = pngName.slice(0,-3)+"csv"
           pdfName = pngName.slice(0,-3)+"pdf"
   
-      var formData = new FormData(this);
+      let formData = new FormData(this);
   
       $.ajax({
           url: "http://104.248.69.73:8080/pdfpost",
@@ -32,7 +35,7 @@ $.ajaxSetup({
               alert('File Submitted!');
           }
   
-      }).then(ocr())
+      }).then(ocr() && res.send("beginning OCR"))
   });
   
   
@@ -44,7 +47,7 @@ $.ajaxSetup({
           dataType: 'text',
           async: false,
           success: function () {
-              console.log("ocr in progress");
+              console.log("ocr finished");
           }
         }).then(makecsv())
   }
@@ -59,18 +62,12 @@ $.ajaxSetup({
           async: false,
           success: function () {
               console.log("grabbing "+pdfName);
+              $("#loading").text("");
           }
         }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))  
 
   }
-  
-//   function postfile() {
-    
-//     var win = window.open("/csvgrab?filename="+csvName)
-//     $(win.document).on('load', function() {
-//         deleteall()
-//     })
-//   }
+
   
   function deleteall() {
     

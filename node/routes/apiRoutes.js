@@ -3,7 +3,8 @@ var request = require("request");
 var fs = require("fs")
 
 module.exports = function (app) {
-    
+  
+
 app.post("/pdfpost", function(req, res) {
 
 
@@ -13,10 +14,8 @@ app.post("/pdfpost", function(req, res) {
         filename = file.name
         pdfname = filename.slice(0,-3) + "pdf"
     
-        file.mv("./node/png/" +filename).then(res.send(filename+" saved"))
-
-        fs.closeSync(fs.openSync("./node/pdfs/"+pdfname, 'w'))
-
+        file.mv("./node/png/" +filename).then(res.send(filename+" saved")) //writes binary file to server
+        fs.closeSync(fs.openSync("./node/pdfs/"+pdfname, 'w'))             //saves empty PDF file to server to be used by OCR 
     }
 
   });
@@ -54,30 +53,19 @@ app.get("/csvgrab", function(req, res) {
 
 
 app.get("/ocr", function(req, res) {
-    console.log(req.params)
 
-    // Demo sample using ABBYY Cloud OCR SDK from Node.js
-
-    if (((typeof process) == 'undefined') || ((typeof window) != 'undefined')) {
-        throw new Error("This code must be run on server side under NodeJS");
-    }
-
-    // Name of application you created
     var appId = 'rocr_app';
-    // Password should be sent to your e-mail after application was created
     var password = 'Yt/3zJ20k7nYJSok8G3kR1tw ';
-
     var ocrfile = req.query.filename.slice(0,-3)
-
     var imagePath = "./node/png/" + ocrfile + "png";
-    var outputPath = './node/pdfs/' + ocrfile + "pdf";
+    var outputPath = './node/pdfs/' + ocrfile + "pdf"; //note this is an empty file created by the /pdfpost route
 
     try {
         console.log("ABBYY Cloud OCR SDK Sample for Node.js");
 
         var ocrsdkModule = require('./ocrsdk.js');
         var ocrsdk = ocrsdkModule.create(appId, password);
-        ocrsdk.serverUrl = "https://cloud.ocrsdk.com"; // change to https for secure connection
+        ocrsdk.serverUrl = "https://cloud.ocrsdk.com"; // changed to https for secure connection
 
         if (appId.length == 0 || password.length == 0) {
             throw new Error("Please provide your application id and password!");
@@ -134,10 +122,8 @@ app.get("/ocr", function(req, res) {
         }
 
         var settings = new ocrsdkModule.ProcessingSettings();
-        // Set your own recognition language and output format here
-        settings.language = "English"; // Can be comma-separated list, e.g. "German,French".
-        settings.exportFormat = "pdfSearchable"; // All possible values are listed in 'exportFormat' parameter description 
-                                    // at http://ocrsdk.com/documentation/apireference/processImage/
+        settings.language = "English";
+        settings.exportFormat = "pdfSearchable"; 
 
         console.log("Uploading image..");
         ocrsdk.processImage(imagePath, settings, uploadCompleted);
