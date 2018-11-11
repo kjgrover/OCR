@@ -33,9 +33,10 @@ $.ajaxSetup({
           processData: false,
           success: function () {
               alert('File Submitted!');
+              console.log("beginning OCR")
           }
   
-      }).then(ocr() && res.send("beginning OCR"))
+      }).then(ocr())
   });
   
   
