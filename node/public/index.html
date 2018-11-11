@@ -121,12 +121,19 @@ function makecsv() {
         success: function () {
             console.log("grabbing "+pdfName);
         }
-      }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))
+      // }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))
+    }).then(postfile(deleteall))
+
 
 
 }
 
-function deleteall() {
+function postfile(callback) {
+  window.open("/csvgrab?filename="+csvName)
+  callback()
+}
+
+let deleteall = function() {
   
   $.ajax({
         url: "http://104.248.69.73:8080/delete?filename="+csvName,
