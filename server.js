@@ -15,7 +15,7 @@ var app = express();
 var PORT = 8080;
 
 // app.use('/', express.static(path.join(__dirname + '/node/public')))
-app.use("/", express.static(__dirname + '/node/public'));
+app.use(express.static(path.join(__dirname, 'node/public')));
 
 app.use(cors());  //technically not needed...this allows this server to be used as an external API
 app.use(upload()); //this is needed for the binary file upload to the server 
