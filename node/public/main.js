@@ -69,7 +69,7 @@ $.ajaxSetup({
   function postfile() {
     
     var win = window.open("/csvgrab?filename="+csvName)
-    $(win.document).load(function() {
+    $(win.document).on('load', function() {
         deleteall()
     })
 
