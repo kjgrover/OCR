@@ -130,11 +130,13 @@ function makecsv() {
 
 function postfile(callback) {
   window.open("/csvgrab?filename="+csvName)
-  
-  return callback()
+
+  if (window.closed) {
+    deleteall()
+  }
 }
 
-let deleteall = function() {
+function deletall() {
   
   $.ajax({
         url: "http://104.248.69.73:8080/delete?filename="+csvName,
