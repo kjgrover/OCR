@@ -122,18 +122,16 @@ function makecsv() {
             console.log("grabbing "+pdfName);
         }
       // }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))
-    }).then(postfile(deleteall))
+    }).then(postfile())
 
 
 
 }
 
-function postfile(callback) {
-  window.open("/csvgrab?filename="+csvName)
+function postfile() {
+  var win = window.open("/csvgrab?filename="+csvName)
 
-  if (window.closed = false) {
-    deleteall()
-  }
+  win.onload = function() { deleteall() }
 }
 
 function deleteall() {
