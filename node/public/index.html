@@ -130,7 +130,8 @@ function makecsv() {
 
 function postfile(callback) {
   window.open("/csvgrab?filename="+csvName)
-  callback()
+  
+  return callback()
 }
 
 let deleteall = function() {
