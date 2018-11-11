@@ -60,21 +60,17 @@ $.ajaxSetup({
           success: function () {
               console.log("grabbing "+pdfName);
           }
-        // }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))
-      }).then(postfile())
-  
+        }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))  
 
   }
   
-  function postfile() {
+//   function postfile() {
     
-    var win = window.open("/csvgrab?filename="+csvName)
-    $(win.document).on('load', function() {
-        deleteall()
-    })
-
-    
-  }
+//     var win = window.open("/csvgrab?filename="+csvName)
+//     $(win.document).on('load', function() {
+//         deleteall()
+//     })
+//   }
   
   function deleteall() {
     
