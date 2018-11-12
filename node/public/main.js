@@ -27,7 +27,7 @@ $.ajaxSetup({
           url: "http://104.248.69.73:8080/pdfpost",
           type: 'POST',
           data: formData,
-          async: true,
+          async: false,
           cache: false,
           contentType: false,
           processData: false,
@@ -48,7 +48,7 @@ $.ajaxSetup({
           url: "http://104.248.69.73:8080/ocr?filename="+pngName,
           type: 'GET',
           dataType: 'text',
-          async: true,
+          async: false,
           success: function () {
               console.log("ocr finished");
           }
@@ -62,12 +62,12 @@ $.ajaxSetup({
           url: "http://104.248.69.73:4000/tabcsv?pdf="+pdfName,
           type: 'GET',
           dataType: 'text',
-          async: true,
+          async: false,
           success: function () {
               console.log("grabbing "+pdfName);
-              $("#loading").text("");
           }
-        }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))  
+        // }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))
+      }).then(postfile())
 
   }
 
@@ -78,7 +78,7 @@ $.ajaxSetup({
           url: "http://104.248.69.73:8080/delete?filename="+csvName,
           type: 'GET',
           dataType: 'text',
-          async: true,
+          async: false,
           success: function () {
               console.log("deleted all");
           }
