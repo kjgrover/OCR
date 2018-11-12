@@ -14,7 +14,6 @@ $.ajaxSetup({
       $("#file-form").on("submit", function(event) {
       event.preventDefault() 
 
-      $("#loading").toggle();
     //   document.getElementById('loading').style.display = 'block';
 
       let filePath = $("#file-name").val();
@@ -35,6 +34,8 @@ $.ajaxSetup({
           success: function () {
               alert('File Submitted!');
               console.log("beginning OCR")
+              $("#loading").toggle();
+
           }
   
       }).then(ocr())
