@@ -14,7 +14,8 @@ $.ajaxSetup({
       $("#file-form").on("submit", function(event) {
       event.preventDefault() 
 
-      $("#loading").prepend("<img id='loader' src='/media/loader-bar.gif' />");
+      $("#loading").toggle();
+    //   document.getElementById('loading').style.display = 'block';
 
       let filePath = $("#file-name").val();
           pngName = filePath.replace(/^.*[\\\/]/, '');
