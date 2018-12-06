@@ -61,8 +61,6 @@ app.get("/ocr", function(req, res) {
     var outputPath = './node/pdfs/' + ocrfile + "pdf"; //note this is an empty file created by the /pdfpost route
 
     try {
-        console.log("ABBYY Cloud OCR SDK Sample for Node.js");
-
         var ocrsdkModule = require('./ocrsdk.js');
         var ocrsdk = ocrsdkModule.create(appId, password);
         ocrsdk.serverUrl = "https://cloud.ocrsdk.com"; // changed to https for secure connection
@@ -131,14 +129,7 @@ app.get("/ocr", function(req, res) {
     } catch (err) {
         res.send("Error: " + err.message);
     }
-
-
-
-
 });
-
-
-
 
 };
 
