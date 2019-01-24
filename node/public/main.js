@@ -114,7 +114,7 @@ $("#file-form").on("submit", function(event) {
 
         $.ajax({
           url: "http://104.248.69.73:4000/tabcsv",
-          type: 'GET',
+          type: 'POST',
           dataType: 'JSON',
           data: {
             pdf: pdfName,

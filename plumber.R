@@ -39,7 +39,7 @@ function(pdf){
 #' @param x2
 #' @param y1
 #' @param y2
-#' @get /tabcsv
+#' @post /tabcsv
 #' @json
 function(pdf){
   library("tabulizer")
