@@ -10,8 +10,39 @@ $.ajaxSetup({
       let pdfName;
       let csvName;
       let pngName;
+      
+var jcrop_api;                                  //I know its a global variable but just don't touch it mkay?
+
+$(function () {                                 //this is for the file upload and display
+    $(":file").change(function () {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = imageIsLoaded;
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+});
+
+function imageIsLoaded(e) {                     //Note I initiated the crop box in the nested function to keep from invoking Jcrop prematurely
+    $('#cropbox').attr('src', e.target.result);
+    $(function($){
+                initJcrop($('#cropbox'));
+                $("#show").click(function () {
+                    // get the coordinates.
+                        console.log(jcrop_api.tellSelect().h);
+                });
+            });
+};
+
+function initJcrop(oImg){                       //this is straight out of the Jcrop documentation AKA don't touch
+        oImg.Jcrop({}
+            ,function(){
+            jcrop_api = this;
+        });
+    };      
+    
   
-      $("#file-form").on("submit", function(event) {
+      $("#file-form").click("submit", function(event) {
       event.preventDefault() 
 
 
