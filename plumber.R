@@ -35,12 +35,16 @@ function(pdf){
 }
 
 #' @param pdf
+#' @param x1
+#' @param x2
+#' @param y1
+#' @param y2
 #' @get /tabcsv
 #' @json
 function(pdf){
   library("tabulizer")
   f <- paste("./node/pdfs/",toString(pdf, width = NULL), sep="")
-  out1 <- extract_tables(f)
+  out1 <- extract_tables(f, area = list(c(x1, x2, y1, y2)))
   
   s = toString(pdf, width = NULL)
   s1 = unlist(strsplit(s, split='.', fixed=TRUE))[1]
@@ -48,7 +52,6 @@ function(pdf){
   
   write.table(out1, file = paste("./node/csv/", csvFile, sep=""), append=TRUE, sep = ",", row.names=FALSE, col.names=FALSE)
   return("Successfully transformed PDF to CSV")
-  
   
 }
 

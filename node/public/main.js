@@ -10,6 +10,10 @@ $.ajaxSetup({
       let pdfName;
       let csvName;
       let pngName;
+      let x1;
+      let x2;
+      let y1;
+      let y2;
       
 var jcrop_api;                                  //I know its a global variable but just don't touch it mkay?
 
@@ -29,7 +33,14 @@ function imageIsLoaded(e) {                     //Note I initiated the crop box 
                 initJcrop($('#cropbox'));
                 $("#show").click(function () {
                     // get the coordinates.
-                        console.log(jcrop_api.tellSelect().h);
+                        console.log(jcrop_api.tellSelect());
+                        x1 = jcrop_api.tellSelect().x;
+                        x2 = jcrop_api.tellSelect().x2;
+                        y1 = jcrop_api.tellSelect().y;
+                        y2 = jcrop_api.tellSelect().y2;
+                        
+                        console.log(x1 + ' ' + x2 + ' ' + y1 + ' ' +y2)
+
                 });
             });
 };
@@ -90,10 +101,28 @@ $("#file-form").on("submit", function(event) {
   
   function makecsv() {
     
-    $.ajax({
-          url: "http://104.248.69.73:4000/tabcsv?pdf="+pdfName,
+    // $.ajax({
+    //       url: "http://104.248.69.73:4000/tabcsv?pdf="+pdfName,
+    //       type: 'GET',
+    //       dataType: 'text',
+    //       async: false,
+    //       success: function () {
+    //           console.log("grabbing "+pdfName);
+    //           $("#loading").text("");
+    //       }
+    //     }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))  
+
+        $.ajax({
+          url: "http://104.248.69.73:4000/tabcsv",
           type: 'GET',
-          dataType: 'text',
+          dataType: 'JSON',
+          data: {
+            pdf: pdfName,
+            x1: x1,
+            x2: x2,
+            y1: y1,
+            y2: y2
+          },
           async: false,
           success: function () {
               console.log("grabbing "+pdfName);
