@@ -44,7 +44,7 @@ function(pdf){
 function(pdf){
   library("tabulizer")
   f <- paste("./node/pdfs/",toString(pdf, width = NULL), sep="")
-  out1 <- extract_tables(f, area = list(c(x1, x2, y1, y2)), guess = FALSE)
+  out1 <- extract_tables(f, area = list(c(y1*.64, x1*.64, y2*.64, x2*.64)), guess = FALSE)
   
   s = toString(pdf, width = NULL)
   s1 = unlist(strsplit(s, split='.', fixed=TRUE))[1]
