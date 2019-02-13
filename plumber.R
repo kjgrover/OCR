@@ -1,5 +1,4 @@
 
-
 library(plumber)
 library(tabulizer)
 
@@ -21,7 +20,7 @@ cors <- function(req, res) {
 
 #' @get /echo
 function(){
-return("echo")
+  return("echo")
   
 }
 
@@ -33,7 +32,6 @@ function(pdf){
   f <- paste("./node/pdfs/",toString(pdf, width = NULL), sep="")
   extract_tables(f)
 }
-
 
 #' @param pdf
 #' @get /tabcsv
@@ -53,12 +51,6 @@ function(pdf){
   
 }
 
-#* Return the sum of two numbers
-#* @param a The first number to add
-#* @param b The second number to add
-#* @post /sum
-function(a, b){
-  as.numeric(a) + as.numeric(b)
-}
+
 
 
