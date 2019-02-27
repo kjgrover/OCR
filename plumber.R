@@ -1,7 +1,7 @@
 
 library(plumber)
 library(tabulizer)
-library(pdftools)
+#library(pdftools)
 
 #' @filter cors
 cors <- function(req, res) {
@@ -61,10 +61,11 @@ function(pdf){
 #' @json
 function(pdf, x1, x2, y1, y2){
   library("tabulizer")
-  library("pdftools")
+  #library("pdftools")
   f <- paste("./node/pdfs/",toString(pdf, width = NULL), sep="")
-  w <- pdf_pagesize(f)
-  adj <- w[1,5]/1000
+  #w <- pdf_pagesize(f)
+  #adj <- w[1,5]/1000
+  adj <-0.8
   out1 <- extract_tables(f, area = list(c(as.numeric(y1)*adj, as.numeric(x1)*adj, as.numeric(y2)*adj, as.numeric(x2)*adj)), guess = FALSE)
   
   s = toString(pdf, width = NULL)
