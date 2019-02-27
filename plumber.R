@@ -61,6 +61,7 @@ function(pdf){
 #' @json
 function(pdf, x1, x2, y1, y2){
   library("tabulizer")
+  library("pdftools")
   f <- paste("./node/pdfs/",toString(pdf, width = NULL), sep="")
   w <- pdf_pagesize(f)
   adj <- w[1,5]/1000
