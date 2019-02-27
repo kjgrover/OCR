@@ -12,7 +12,7 @@ var path = require('path');
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = 8080;
+var PORT = 80;
 
 app.use('/', express.static(path.join(__dirname + '/node/public')))
 
