@@ -50,13 +50,18 @@ function(pdf){
   
 }
 
+
 #' @param pdf
-#' @get /tabcsv
+#' @param x1
+#' @param x2
+#' @param y1
+#' @param y2
+#' @post /coordinatesCSV
 #' @json
 function(pdf){
   library("tabulizer")
   f <- paste("./node/pdfs/",toString(pdf, width = NULL), sep="")
-  out1 <- extract_tables(f)
+  out1 <- extract_tables(f, area = list(c(y1*.64, x1*.64, y2*.64, x2*.64)), guess = FALSE)
   
   s = toString(pdf, width = NULL)
   s1 = unlist(strsplit(s, split='.', fixed=TRUE))[1]
@@ -65,9 +70,12 @@ function(pdf){
   write.table(out1, file = paste("./node/csv/", csvFile, sep=""), append=TRUE, sep = ",", row.names=FALSE, col.names=FALSE)
   return("Successfully transformed PDF to CSV")
   
-  
 }
 
-
-
-
+#* Return the sum of two numbers
+#* @param a The first number to add
+#* @param b The second number to add
+#* @post /sum
+function(a, b){
+  as.numeric(a) + as.numeric(b)
+}
