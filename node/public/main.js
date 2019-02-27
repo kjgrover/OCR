@@ -15,7 +15,7 @@ $.ajaxSetup({
       let y1;
       let y2;
       
-var jcrop_api;                                  //I know its a global variable but just don't touch it mkay?
+var jcrop_api;                                  //I know this and all of the above are global variables but just don't touch em mkay?
 
 $(function () {                                 //this is for the file upload and display
     $(":file").change(function () {
@@ -113,8 +113,8 @@ $("#file-form").on("submit", function(event) {
     //     }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))  
 
         $.ajax({
-          url: "http://104.248.69.73:4000/tabcsv",
-          type: 'GET',
+          url: "http://104.248.69.73:4000/coordinatesCSV",
+          type: 'POST',
           dataType: 'JSON',
           data: {
             pdf: pdfName,
