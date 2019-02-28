@@ -69,7 +69,7 @@ $("#file-form").on("submit", function(event) {
       let formData = new FormData(this);
   
       $.ajax({
-          url: "http://104.248.69.73:8080/pdfpost",
+          url: "http://104.248.69.73:80/pdfpost",
           type: 'POST',
           data: formData,
           async: false,
@@ -88,7 +88,7 @@ $("#file-form").on("submit", function(event) {
   function ocr() {
     
     $.ajax({
-          url: "http://104.248.69.73:8080/ocr?filename="+pngName,
+          url: "http://104.248.69.73:80/ocr?filename="+pngName,
           type: 'GET',
           dataType: 'text',
           async: false,
@@ -136,7 +136,7 @@ $("#file-form").on("submit", function(event) {
   function deleteall() {
     
     $.ajax({
-          url: "http://104.248.69.73:8080/delete?filename="+csvName,
+          url: "http://104.248.69.73:80/delete?filename="+csvName,
           type: 'GET',
           dataType: 'text',
           async: false,
