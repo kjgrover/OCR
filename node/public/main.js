@@ -31,7 +31,7 @@ function imageIsLoaded(e) {                     //Note I initiated the crop box 
     $('#cropbox').attr('src', e.target.result);
     $(function($){
                 initJcrop($('#cropbox'));
-                $("#show").click(function () {
+                $("#file-form").click(function () {
                     // get the coordinates.
                         console.log(jcrop_api.tellSelect());
                         x1 = jcrop_api.tellSelect().x;
