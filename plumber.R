@@ -114,7 +114,7 @@ for (i in n) {
   listOfVectors[[i]] <- paste("a", n)
 }
 
-pukie <- c(rep(1, each=length(mx1)))
+p <- c(rep(1, each=length(mx1)))
 
 
   out1 <- extract_tables(f, pages = p, area = listOfVectors, guess = FALSE)
