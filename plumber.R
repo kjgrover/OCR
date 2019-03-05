@@ -76,6 +76,71 @@ function(pdf, x1, x2, y1, y2){
   
 }
 
+
+#' @param pdf
+#' @param x1
+#' @param x2
+#' @param y1
+#' @param y2
+#' @post /multicoordinate
+#' @json
+function(pdf, x1, x2, y1, y2){
+  library("tabulizer")
+  library("pdftools")
+  f <- paste("./node/pdfs/",toString(pdf, width = NULL), sep="")
+  w <- pdf_pagesize(f)
+  adj <- w[1,5]/1000
+
+  mx1 <- as.list(strsplit(x1, ",")[[1]])
+  mx2 <- as.list(strsplit(x2, ",")[[1]])
+  my1 <- as.list(strsplit(y1, ",")[[1]])
+  my2 <- as.list(strsplit(y2, ",")[[1]])
+
+ y <- 1
+  z <- 0
+  repeat {
+    paste("a", y) = c(as.numeric(mx1[y])*adj,as.numeric(mx2[y])*adj, as.numeric(mx2[y])*adj, as.numeric(mx2[y])*adj)
+    y = y+1
+    if (y == length(mx1)){
+      break
+    }
+  }
+
+listOfVectors <- list()
+
+n <- c(1:length(mx1))
+
+for (i in n) {
+  listOfVectors[[i]] <- paste("a", n)
+}
+
+pukie <- c(rep(1, each=length(mx1)))
+
+
+  out1 <- extract_tables(f, pages = p, area = listOfVectors, guess = FALSE)
+  
+  s = toString(pdf, width = NULL)
+  s1 = unlist(strsplit(s, split='.', fixed=TRUE))[1]
+  csvFile = paste(s1, ".csv", sep="")
+  
+q <- length(out1)
+t <- 1
+plug <- vector(mode="numeric", length=0)
+repeat {
+  plug = append(plug, out1[[t]])
+  t = t+1
+  if (q == q){
+    break
+  }
+}
+
+
+  write.table(plug, file = paste("./node/csv/", csvFile, sep=""), append=TRUE, sep = ",", row.names=FALSE, col.names=FALSE)
+  return("Successfully transformed PDF to CSV")
+  
+}
+
+
 #* Return the sum of two numbers
 #* @param a The first number to add
 #* @param b The second number to add
