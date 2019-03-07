@@ -8,6 +8,6 @@ app.get("/", function(req, res) {
 });
 
 app.get("/.well-known/pki-validation/3218FE1AB9AC2DC63DA63A12CB3B15F5.txt", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/3218FE1AB9AC2DC63DA63A12CB3B15F5.txt"));
+  res.sendFile(path.join(__dirname, "../../.well-known/pki-validation/3218FE1AB9AC2DC63DA63A12CB3B15F5.txt"));
 });
 };
