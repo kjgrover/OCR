@@ -100,7 +100,7 @@ function(pdf, x1, x2, y1, y2){
  y <- 1
   z <- 0
   repeat {
-    assign(paste0("a", y), i) = c(as.numeric(mx1[y])*adj,as.numeric(mx2[y])*adj, as.numeric(my1[y])*adj, as.numeric(my2[y])*adj)
+    assign(paste0("a", y), y) = c(as.numeric(mx1[y])*adj,as.numeric(mx2[y])*adj, as.numeric(my1[y])*adj, as.numeric(my2[y])*adj)
     y = y+1
     if (y == length(mx1)){
       break
