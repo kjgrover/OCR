@@ -113,7 +113,8 @@ for (i in 1:length(mx1)) {
 
   listOfVectors[[i]] <- c(as.numeric(mx1[i])*adj,as.numeric(mx2[i])*adj, as.numeric(my1[i])*adj, as.numeric(my2[i])*adj)
 }
-
+print("list of vectors below")
+print(listOfVectors)
 
   out1 <- extract_tables(f, pages = p, area = listOfVectors, guess = FALSE)
   
