@@ -95,10 +95,10 @@ function(pdf, x1, x2, y1, y2){
   w <- pdf_pagesize(f)
   adj <- w[1,5]/1000
 
-  gsub("%2C", ",", x1)
-  gsub("%2C", ",", x2)
-  gsub("%2C", ",", y1)
-  gsub("%2C", ",", y2)
+  x1 <- gsub("%2C", ",", x1)
+  x2 <- gsub("%2C", ",", x2)
+  y1 <- gsub("%2C", ",", y1)
+  y2 <- gsub("%2C", ",", y2)
 
   mx1 <- as.list(strsplit(x1, ",")[[1]])
   print("mx1 below")
