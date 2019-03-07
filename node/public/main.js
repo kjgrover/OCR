@@ -113,7 +113,7 @@ $("#file-form").on("submit", function(event) {
     //     }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))  
 
         $.ajax({
-          url: "http://104.248.69.73:4000/coordinatesCSV",
+          url: "http://104.248.69.73:4000/multicoordinate",
           type: 'POST',
           dataType: 'JSON',
           data: {
