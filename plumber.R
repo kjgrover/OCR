@@ -98,25 +98,21 @@ function(pdf, x1, x2, y1, y2){
   my1 <- as.list(strsplit(y1, ",")[[1]])
   my2 <- as.list(strsplit(y2, ",")[[1]])
 
- y <- 1
-  z <- 0
-  repeat {
-    assign(paste0("a", y), y) = c(as.numeric(mx1[y])*adj,as.numeric(mx2[y])*adj, as.numeric(my1[y])*adj, as.numeric(my2[y])*adj)
-    y = y+1
-    if (y == length(mx1)){
-      break
-    }
-  }
+# y <- 1
+#  z <- 0
+#  repeat {
+#   assign(paste0("a", y), y) <- c(as.numeric(mx1[y])*adj,as.numeric(mx2[y])*adj, as.numeric(my1[y])*adj, as.numeric(my2[y])*adj)
+#    y = y+1
+#    if (y == length(mx1)){
+#      break
+#   }
+#  }
 
 listOfVectors <- list()
+for (i in 1:length(mx1)) {
 
-n <- c(1:length(mx1))
-
-for (i in n) {
-  listOfVectors[[i]] <- paste("a", n)
+  listOfVectors[[i]] <- c(as.numeric(mx1[y])*adj,as.numeric(mx2[y])*adj, as.numeric(my1[y])*adj, as.numeric(my2[y])*adj)
 }
-
-p <- c(rep(1, each=length(mx1)))
 
 
   out1 <- extract_tables(f, pages = p, area = listOfVectors, guess = FALSE)
