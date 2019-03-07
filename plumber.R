@@ -116,6 +116,10 @@ for (i in 1:length(mx1)) {
 print("list of vectors below")
 print(listOfVectors)
 
+p <- c(rep(1, each=length(mx1)))
+
+print("pages vector below")
+print(p)
   out1 <- extract_tables(f, pages = p, area = listOfVectors, guess = FALSE)
   
   s = toString(pdf, width = NULL)
