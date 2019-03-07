@@ -137,7 +137,7 @@ plug <- vector(mode="numeric", length=0)
 repeat {
   plug = append(plug, out1[[t]])
   t = t+1
-  if (q == q){
+  if (t == q){
     break
   }
 }
