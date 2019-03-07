@@ -34,10 +34,10 @@ function imageIsLoaded(e) {                     //Note I initiated the crop box 
                 $("#show").click(function () {
                     // get the coordinates.
                         console.log(jcrop_api.tellSelect());
-                        x1 += ","+jcrop_api.tellSelect().x.toString();
-                        x2 += ","+jcrop_api.tellSelect().x2.toString();
-                        y1 += ","+jcrop_api.tellSelect().y.toString();
-                        y2 += ","+jcrop_api.tellSelect().y2.toString();
+                        x1 += jcrop_api.tellSelect().x.toString()+",";
+                        x2 += jcrop_api.tellSelect().x2.toString()+",";
+                        y1 += jcrop_api.tellSelect().y.toString()+",";
+                        y2 += jcrop_api.tellSelect().y2.toString()+",";
                         
                         console.log(x1 + ' ' + x2 + ' ' + y1 + ' ' +y2)
 
