@@ -118,10 +118,10 @@ $("#file-form").on("submit", function(event) {
           dataType: 'JSON',
           data: {
             pdf: pdfName,
-            x1: x1.replace(/%2C/g,","),
-            x2: x2.replace(/%2C/g,","),
-            y1: y1.replace(/%2C/g,","),
-            y2: y2.replace(/%2C/g,",")
+            x1: x1,
+            x2: x2,
+            y1: y1,
+            y2: y2
           },
           async: false,
           success: function () {
