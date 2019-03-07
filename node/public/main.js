@@ -10,10 +10,10 @@ $.ajaxSetup({
       let pdfName;
       let csvName;
       let pngName;
-      let x1 = [];
-      let x2 = [];
-      let y1 = [];
-      let y2 = [];
+      let x1 = "";
+      let x2 = "";
+      let y1 = "";
+      let y2 = "";
       
 var jcrop_api;                                  //I know this and all of the above are global variables but just don't touch em mkay?
 
@@ -34,10 +34,10 @@ function imageIsLoaded(e) {                     //Note I initiated the crop box 
                 $("#show").click(function () {
                     // get the coordinates.
                         console.log(jcrop_api.tellSelect());
-                        x1.push(jcrop_api.tellSelect().x);
-                        x2.push(jcrop_api.tellSelect().x2);
-                        y1.push(jcrop_api.tellSelect().y);
-                        y2.push(jcrop_api.tellSelect().y2);
+                        x1+","+jcrop_api.tellSelect().x.toString();
+                        x2+","+jcrop_api.tellSelect().x2.toString();
+                        y1+","+jcrop_api.tellSelect().y.toString();
+                        y2+","+jcrop_api.tellSelect().y2.toString();
                         
                         console.log(x1 + ' ' + x2 + ' ' + y1 + ' ' +y2)
 
@@ -118,10 +118,10 @@ $("#file-form").on("submit", function(event) {
           dataType: 'JSON',
           data: {
             pdf: pdfName,
-            x1: x1.toString(),
-            x2: x2.toString(),
-            y1: y1.toString(),
-            y2: y2.toString()
+            x1: x1,
+            x2: x2,
+            y1: y1,
+            y2: y2
           },
           async: false,
           success: function () {
