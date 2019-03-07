@@ -142,6 +142,8 @@ repeat {
   }
 }
 
+print(plug)
+
 
   write.table(plug, file = paste("./node/csv/", csvFile, sep=""), append=TRUE, sep = ",", row.names=FALSE, col.names=FALSE)
   return("Successfully transformed PDF to CSV")
