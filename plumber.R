@@ -111,7 +111,7 @@ function(pdf, x1, x2, y1, y2){
 listOfVectors <- list()
 for (i in 1:length(mx1)) {
 
-  listOfVectors[[i]] <- c(as.numeric(mx1[y])*adj,as.numeric(mx2[y])*adj, as.numeric(my1[y])*adj, as.numeric(my2[y])*adj)
+  listOfVectors[[i]] <- c(as.numeric(mx1[i])*adj,as.numeric(mx2[i])*adj, as.numeric(my1[i])*adj, as.numeric(my2[i])*adj)
 }
 
 
