@@ -131,7 +131,7 @@ print(p)
   s1 = unlist(strsplit(s, split='.', fixed=TRUE))[1]
   csvFile = paste(s1, ".csv", sep="")
   
-q <- length(out1)
+q <- length(out1)+1
 t <- 1
 plug <- vector(mode="numeric", length=0)
 repeat {
