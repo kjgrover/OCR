@@ -118,10 +118,10 @@ $("#file-form").on("submit", function(event) {
           dataType: 'JSON',
           data: {
             pdf: pdfName,
-            x1: x1,
-            x2: x2,
-            y1: y1,
-            y2: y2
+            x1: JSON.stringify(x1),
+            x2: JSON.stringify(x2),
+            y1: JSON.stringify(y1),
+            y2: JSON.stringify(y2)
           },
           async: false,
           success: function () {
