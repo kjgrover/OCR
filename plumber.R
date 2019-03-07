@@ -65,10 +65,10 @@ function(pdf, x1, x2, y1, y2){
   f <- paste("./node/pdfs/",toString(pdf, width = NULL), sep="")
   w <- pdf_pagesize(f)
   adj <- w[1,5]/1000
-  print(as.numeric(y1)*adj)
-   print(as.numeric(y2)*adj)
     print(as.numeric(x1)*adj)
      print(as.numeric(x2)*adj)
+       print(as.numeric(y1)*adj)
+   print(as.numeric(y2)*adj)
   out1 <- extract_tables(f, area = list(c(as.numeric(y1)*adj, as.numeric(x1)*adj, as.numeric(y2)*adj, as.numeric(x2)*adj)), guess = FALSE)
   
   s = toString(pdf, width = NULL)
@@ -116,7 +116,7 @@ function(pdf, x1, x2, y1, y2){
 listOfVectors <- list()
 for (i in 1:length(mx1)) {
 
-  listOfVectors[[i]] <- c(as.numeric(mx1[i])*adj,as.numeric(mx2[i])*adj, as.numeric(my1[i])*adj, as.numeric(my2[i])*adj)
+  listOfVectors[[i]] <- c(as.numeric(my1[i])*adj,as.numeric(mx1[i])*adj, as.numeric(my2[i])*adj, as.numeric(mx2[i])*adj)
 }
 print("list of vectors below")
 print(listOfVectors)
