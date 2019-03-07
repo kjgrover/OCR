@@ -92,7 +92,8 @@ function(pdf, x1, x2, y1, y2){
   adj <- w[1,5]/1000
 
   mx1 <- as.list(strsplit(x1, ",")[[1]])
-  print("mx1 = " +mx1[1])
+  print("mx1 below")
+  print(mx1[1])
   mx2 <- as.list(strsplit(x2, ",")[[1]])
   my1 <- as.list(strsplit(y1, ",")[[1]])
   my2 <- as.list(strsplit(y2, ",")[[1]])
