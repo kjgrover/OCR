@@ -21,8 +21,6 @@ var options = {
   cert: fs.readFileSync('/node/sslSecurity/www_grover_technology.crt')
 }
 
-https.createServer(options, (req, res) => {
-
 app.use('/', express.static(path.join(__dirname + '/node/public')))
 
 app.use(cors());  //technically not needed...this allows this server to be used as an external API
@@ -40,4 +38,6 @@ require("./node/routes/htmlRoutes")(app);
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
-}).listen(PORT)
+
+https.createServer(options, app).listen(443)
+
