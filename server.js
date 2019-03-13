@@ -3,7 +3,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
-var https = require("https");
+var http = require("http");
 var fs = require("fs");
 var upload = require("express-fileupload");
 var cors = require('cors');
@@ -12,14 +12,7 @@ var path = require('path');
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = 443;
-var hostname = 'www.grover.technology'
-
-var options = {
-  ca: fs.readFileSync('/node/sslSecurity/www_grover_technology.ca-bundle'),
-  key: fs.readFileSync('/node/sslSecurity/www.grover.technology.key'),
-  cert: fs.readFileSync('/node/sslSecurity/www_grover_technology.crt')
-}
+var PORT = 80;
 
 app.use('/', express.static(path.join(__dirname + '/node/public')))
 
@@ -38,6 +31,3 @@ require("./node/routes/htmlRoutes")(app);
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
-
-https.createServer(options, app).listen(443)
-
