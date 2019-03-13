@@ -17,9 +17,11 @@ var hostname = 'www.grover.technology'
 
 var options = {
   ca: fs.readFileSync('/node/sslSecurity/www_grover_technology.ca-bundle'),
-  key: fs.readFileSync('/node/sslSecurity/www_grover_technology.p7b'),
+  key: fs.readFileSync('/node/sslSecurity/www.grover.technology.key'),
   cert: fs.readFileSync('/node/sslSecurity/www_grover_technology.crt')
 }
+
+https.createServer(options, (req, res) => {
 
 app.use('/', express.static(path.join(__dirname + '/node/public')))
 
@@ -35,6 +37,7 @@ require("./node/routes/htmlRoutes")(app);
 
 // Starts the server to begin listening
 // =============================================================
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
-});
+// app.listen(PORT, function() {
+//   console.log("App listening on PORT " + PORT);
+// });
+}).listen(PORT)
