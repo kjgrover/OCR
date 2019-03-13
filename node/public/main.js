@@ -14,7 +14,7 @@ $.ajaxSetup({
       let x2 = "";
       let y1 = "";
       let y2 = "";
-      let counter;
+      let counter = 0;
       
       
 var jcrop_api;                                  //I know this and all of the above are global variables but just don't touch em mkay?
