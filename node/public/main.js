@@ -42,7 +42,7 @@ function imageIsLoaded(e) {                     //Note I initiated the crop box 
                         y2 += jcrop_api.tellSelect().y2.toString()+",";
 
                         counter = counter + 1;
-                        $("#count").html("<h1>"+counter+"</h1>");
+                        $("#count").html("<h1># of Coordinates: "+counter+"</h1>");
                         console.log(x1 + ' ' + x2 + ' ' + y1 + ' ' +y2)
 
                 });
