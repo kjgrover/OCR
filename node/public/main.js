@@ -14,6 +14,8 @@ $.ajaxSetup({
       let x2 = "";
       let y1 = "";
       let y2 = "";
+      let counter;
+      
       
 var jcrop_api;                                  //I know this and all of the above are global variables but just don't touch em mkay?
 
@@ -38,7 +40,9 @@ function imageIsLoaded(e) {                     //Note I initiated the crop box 
                         x2 += jcrop_api.tellSelect().x2.toString()+",";
                         y1 += jcrop_api.tellSelect().y.toString()+",";
                         y2 += jcrop_api.tellSelect().y2.toString()+",";
-                        
+
+                        counter += 1;
+                        $("count").update(counter);
                         console.log(x1 + ' ' + x2 + ' ' + y1 + ' ' +y2)
 
                 });
