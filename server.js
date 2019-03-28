@@ -9,22 +9,6 @@ var upload = require("express-fileupload");
 var cors = require('cors');
 var path = require('path');
 
-var https = require('https');
- 
-
-var options = {
-
- key: fs.readFileSync('./node/sslSecurity/www.grover.technology.key'),
-
- cert: fs.readFileSync('./node/sslSecurity/www_grover_technology.crt'),
-
- ca: fs.readFileSync ('./node/sslSecurity/www_grover_technology.ca-bundle')
-
-};
-
- 
-
-https.createServer(options, function (req, res) {
 
 
 
@@ -49,5 +33,4 @@ require("./node/routes/htmlRoutes")(app);
 // =============================================================
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
-});
 });
