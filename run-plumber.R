@@ -1,4 +1,4 @@
-#!/usr/bin/R
+#!/usr/bin/env Rscript
 
 library(plumber)
 
