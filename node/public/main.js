@@ -56,8 +56,6 @@ function initJcrop(oImg){                       //this is straight out of the Jc
     
   
 $("#file-form").on("submit", function(event) {
-    // $("#file-form").submit( function(event) {
-
     event.preventDefault() 
 
     //   $("#loading").toggle();
@@ -85,8 +83,8 @@ $("#file-form").on("submit", function(event) {
               console.log("beginning OCR")
           }
   
-      })
-  }).then(ocr());
+      }).then(ocr())
+  });
   
   
   function ocr() {
@@ -105,17 +103,6 @@ $("#file-form").on("submit", function(event) {
   
   
   function makecsv() {
-    
-    // $.ajax({
-    //       url: "http://104.248.69.73:4000/tabcsv?pdf="+pdfName,
-    //       type: 'GET',
-    //       dataType: 'text',
-    //       async: false,
-    //       success: function () {
-    //           console.log("grabbing "+pdfName);
-    //           $("#loading").text("");
-    //       }
-    //     }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))  
 
         $.ajax({
           url: "http://104.248.69.73:4000/multicoordinate",
@@ -133,8 +120,14 @@ $("#file-form").on("submit", function(event) {
               console.log("grabbing "+pdfName);
               $("#loading").text("");
           }
-        }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))  
+        // }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))  
+        }).then(csvgrab())
 
+  }
+
+  function csvgrab() {
+    window.open("/csvgrab?filename="+csvName)
+    setTimeout(function(){ deleteall(); }, 10000)
   }
 
   
