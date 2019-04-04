@@ -40,7 +40,7 @@ function imageIsLoaded(e) {                     //Note I initiated the crop box 
                         y2 += jcrop_api.tellSelect().y2.toString()+",";
 
                         counter = counter + 1;
-                        $("#count").html("<h2># of Areas: "+counter+"</h2>");
+                        $("#count").html("<h2>Areas Chosen: "+counter+"</h2>");
                         console.log(x1 + ' ' + x2 + ' ' + y1 + ' ' +y2)
 
                 });
@@ -77,9 +77,7 @@ $("#file-form").on("submit", function(event) {
           contentType: false,
           processData: false,
           success: function () {
-            //   alert('File Submitted!');
-            $("#count").html("<h2>File Submitted. Beginning OCR.</h2>");
-
+              alert('File Submitted. Beginning OCR.');
               console.log("beginning OCR")
           }
   
@@ -95,7 +93,7 @@ $("#file-form").on("submit", function(event) {
           dataType: 'text',
           async: false,
           success: function () {
-            $("#count").html("<h2>OCR Complete!</h2>");
+              alert("OCR Finished!")
               console.log("ocr finished");
           }
         }).then(makecsv())
@@ -120,7 +118,6 @@ $("#file-form").on("submit", function(event) {
               console.log("grabbing "+pdfName);
               $("#loading").text("");
           }
-        // }).then(window.open("/csvgrab?filename="+csvName) && setTimeout(function(){ deleteall(); }, 10000))  
         }).then(csvgrab())
 
   }
