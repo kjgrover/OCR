@@ -85,8 +85,8 @@ $("#file-form").on("submit", function(event) {
               console.log("beginning OCR")
           }
   
-      }).then(ocr())
-  });
+      })
+  }).then(ocr());
   
   
   function ocr() {
