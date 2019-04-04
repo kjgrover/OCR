@@ -15,9 +15,7 @@ $.ajaxSetup({
       let y1 = "";
       let y2 = "";
       let counter = 0;
-      
-      
-var jcrop_api;                                  //I know this and all of the above are global variables but just don't touch em mkay?
+      var jcrop_api;                                  //I know this and all of the above are global variables but just don't touch em mkay?
 
 $(function () {                                 //this is for the file upload and display
     $(":file").change(function () {
@@ -81,7 +79,9 @@ $("#file-form").on("submit", function(event) {
           contentType: false,
           processData: false,
           success: function () {
-              alert('File Submitted!');
+            //   alert('File Submitted!');
+            $("#count").html("<h2>File Submitted. Beginning OCR.</h2>");
+
               console.log("beginning OCR")
           }
   
@@ -97,6 +97,7 @@ $("#file-form").on("submit", function(event) {
           dataType: 'text',
           async: false,
           success: function () {
+            $("#count").html("<h2>OCR Complete!</h2>");
               console.log("ocr finished");
           }
         }).then(makecsv())
@@ -149,20 +150,4 @@ $("#file-form").on("submit", function(event) {
           }
         }).then(csvName = "", pdfName = "", pngName = "")
   }
-  
-  
-  
-  // function getjson() {
-  //   $.ajax({
-  //         url: "http://104.248.69.73:4000/tab?pdf="+pdfName,
-  //         type: 'GET',
-  //         dataType: 'blob',
-  //         success: function (data) {
-  //             console.log("JSON BELOW");
-  //         }
-  //       }).then(function(data) {
-  //             console.log(data);
-  //         })
-  // }
-  
-  
+    
